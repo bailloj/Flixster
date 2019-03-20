@@ -8,7 +8,7 @@
 
 //-------------------------- Note: Comments are for code below it ---------------------------//
 import UIKit
-import AlamofireImage
+import AlamofireImage // Cocoapods third party library
 //Step 2: Add UITableViewDelegate, UITableViewDataSource
 class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
