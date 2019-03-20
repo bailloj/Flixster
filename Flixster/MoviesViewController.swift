@@ -74,14 +74,27 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /* In a storyboard-based application, you will often want to do a little preparation before navigation
+     Going from MoviesViewController to MovieDetailsViewController, a new detailsviewcontroller is called each time
+     a cell is chosen
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //Find the selected Movie
+        let cell = sender as! UITableViewCell // specific cell that was clicked on
+        let indexPath = tableView.indexPath(for: cell)! // Position of the cell in the table view (indexPath)
+        let movie = movies[indexPath.row] //Indexing movies as the row property of the indexPath
+        
+        // Pass the selected movie to the MovieDetailsViewController.
         // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let detailsViewController = segue.destination as! MovieDetailsViewController
+        detailsViewController.movie = movie
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    */
+
 
 }
+ 
